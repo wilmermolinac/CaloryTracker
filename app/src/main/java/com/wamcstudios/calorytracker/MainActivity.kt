@@ -16,7 +16,9 @@ import com.wamcstudios.calorytracker.navigation.graph.RootNavGraph
 import com.wamcstudios.calorytracker.navigation.routes.NavigationGraphRoute
 import com.wamcstudios.calorytracker.onboarding.presentation.welcome.WelcomeScreen
 import com.wamcstudios.calorytracker.ui.theme.CaloryTrackerTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private lateinit var navHostController: NavHostController
