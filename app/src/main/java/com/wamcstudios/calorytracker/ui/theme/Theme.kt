@@ -17,9 +17,9 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-   /* primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80*/
+    /* primary = Purple80,
+     secondary = PurpleGrey80,
+     tertiary = Pink80*/
     primary = BrightGreen,
     primaryContainer = DarkGreen,
     secondary = Orange,
@@ -32,10 +32,10 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 private val LightColorScheme = lightColorScheme(
-   /* primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-*/
+    /* primary = Purple40,
+     secondary = PurpleGrey40,
+     tertiary = Pink40
+ */
     primary = BrightGreen,
     primaryContainer = DarkGreen,
     secondary = Orange,
@@ -61,7 +61,7 @@ fun CaloryTrackerTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
@@ -81,9 +81,32 @@ fun CaloryTrackerTheme(
         }
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
+    val windowInfo = rememberWindowInfo()
+    var typography = CompactTypography
+    var appDimens = CompactDimensions
+
+    if (windowInfo.screenWidthInfo is WindowInfo.WindowType.Compact) {
+        typography = CompactTypography
+        appDimens = CompactDimensions
+    }
+
+    if (windowInfo.screenWidthInfo is WindowInfo.WindowType.Medium) {
+        typography = MediumTypography
+        appDimens = MediumDimensions
+    }
+
+    if (windowInfo.screenWidthInfo is WindowInfo.WindowType.Expanded) {
+        typography = ExpandedTypography
+        appDimens = ExpandedDimensions
+    }
+
+    ProvideAppUtils(appDimens = appDimens) {
+        MaterialTheme(
+            colorScheme = colorScheme,
+            typography = typography,
+            content = content
+        )
+    }
+
+
 }
