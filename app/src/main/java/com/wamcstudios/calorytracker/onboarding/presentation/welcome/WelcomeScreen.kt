@@ -14,6 +14,6 @@ fun WelcomeScreen(onNavigate: (UiEvent) -> Unit) {
     Scaffold {
         WelcomeContent(
             modifier = Modifier.padding(it),
-            onClick = { onNavigate(UiEvent.Navigate(route = NavigationRoute.Age.route)) })
+            onClick = { onNavigate(UiEvent.Navigate(route = NavigationRoute.Gender.route)) })
     }
 }

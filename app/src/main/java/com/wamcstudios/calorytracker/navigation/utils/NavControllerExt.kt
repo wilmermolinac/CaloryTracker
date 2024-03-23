@@ -1,6 +1,7 @@
 package com.wamcstudios.aifusion.navigation.utils
 
 import androidx.navigation.NavController
+import com.wamcstudios.calorytracker.navigation.routes.NavigationGraphRoute
 import com.wamcstudios.calorytracker.navigation.utils.UiEvent
 
 // Creamos esta función de extensión donde recibirá un evento UiEvent
@@ -17,6 +18,12 @@ fun NavController.navigate(event: UiEvent) {
             // Si es para navegar a una ruta, realizamos la navegación a esa screen
             // pasándole la ruta a navigate
             this.navigate(event.route) {
+
+                if (event.route == NavigationGraphRoute.TrackerGraph.route) {
+                    popUpTo(graph.id) {
+                        inclusive = true
+                    }
+                }
 
 
                 /*if (event.route == NavigationRoute.Camera.route) {

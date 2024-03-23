@@ -6,4 +6,6 @@ sealed class NavigationGraphRoute(val route: String) {
 
     object OnboardingGraph : NavigationGraphRoute(route = "onboarding_graph")
 
+    object TrackerGraph : NavigationGraphRoute(route = "tracker_graph")
+
 }

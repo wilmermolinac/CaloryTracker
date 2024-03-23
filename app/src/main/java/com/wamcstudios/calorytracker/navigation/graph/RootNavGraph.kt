@@ -20,5 +20,8 @@ fun RootNavGraph(
 
             onboardingNavGraph(navHostController)
 
+            trackerGraph(navHostController)
+
+
         })
 }
