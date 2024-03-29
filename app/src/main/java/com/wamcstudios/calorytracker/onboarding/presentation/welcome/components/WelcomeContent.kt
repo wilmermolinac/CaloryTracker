@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,13 +22,15 @@ import com.wamcstudios.calorytracker.core.presentation.components.CaloryDefaultA
 import com.wamcstudios.calorytracker.ui.theme.LocalSpacing
 
 @Composable
-fun WelcomeContent(modifier: Modifier = Modifier, onClick:() -> Unit) {
+fun WelcomeContent(modifier: Modifier = Modifier, onClick: () -> Unit) {
 
     val spacing = LocalSpacing.current
 
     Box(modifier = modifier.fillMaxSize()) {
         Column(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .padding(horizontal = spacing.spaceMediumExtra)
+                .fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -39,9 +42,13 @@ fun WelcomeContent(modifier: Modifier = Modifier, onClick:() -> Unit) {
                 textAlign = TextAlign.Center
             )
 
-            Spacer(modifier = Modifier.height(spacing.spaceMedium ))
+            Spacer(modifier = Modifier.height(spacing.spaceMedium))
 
-            CaloryDefaultActionButton(onClick = { onClick()}, text = stringResource(id = R.string.lets_go), isEnabled = true)
+            CaloryDefaultActionButton(
+                onClick = { onClick() },
+                text = stringResource(id = R.string.lets_go),
+                isEnabled = true
+            )
 
 
         }

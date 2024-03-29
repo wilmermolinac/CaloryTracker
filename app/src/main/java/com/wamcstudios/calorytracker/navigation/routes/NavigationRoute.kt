@@ -12,5 +12,9 @@ sealed class NavigationRoute(val route: String) {
     object Goal : NavigationRoute(route = "goal")
 
     object TrackerOverview : NavigationRoute(route = "tracker_overview")
-    object Search : NavigationRoute(route = "search")
+    object Search :
+        NavigationRoute(route = "search/?{mealTypeName}/?{dayOfMonth}/?{monthValue}/?{year}") {
+        fun passDate(mealTypeName: String, dayOfMonth: Int, monthValue: Int, year: Int) =
+            "search/?$mealTypeName/?$dayOfMonth/?$monthValue/?$year"
+    }
 }

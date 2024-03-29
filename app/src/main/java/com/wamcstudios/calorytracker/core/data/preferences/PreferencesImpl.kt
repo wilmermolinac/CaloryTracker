@@ -89,4 +89,13 @@ class PreferencesImpl @Inject constructor(private val sharedPreferences: SharedP
             fatRatio = fatRatio
         )
     }
+
+    override fun saveShouldShowOnboarding(shouldShow: Boolean) {
+        sharedPreferences.edit()
+            .putBoolean(PreferencesConstant.SHOULD_ONBOARDING_PREFERENCES, shouldShow).apply()
+    }
+
+    override fun loadShouldShowOnboarding(): Boolean {
+        return sharedPreferences.getBoolean(PreferencesConstant.SHOULD_ONBOARDING_PREFERENCES, true)
+    }
 }

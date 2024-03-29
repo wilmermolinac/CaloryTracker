@@ -2,6 +2,18 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="AddButtonPreview">
+        <State />
+      </entry>
+      <entry key="ExpandableMealPreview">
+        <State />
+      </entry>
+      <entry key="NutrientHeaderPreview">
+        <State />
+      </entry>
+      <entry key="NutrientsBarPreview">
+        <State />
+      </entry>
       <entry key="app">
         <State />
       </entry>

@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -24,6 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.LastBaseline
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -36,6 +38,10 @@ fun CaloryDefaultTextField(
     modifier: Modifier = Modifier,
     value: String,
     onValueChange: (String) -> Unit, unit: String,
+    valueStyle: TextStyle = MaterialTheme.typography.displayLarge.copy(
+        color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold
+    ),
+    unitStyle: TextStyle = MaterialTheme.typography.bodySmall,
     keyboardOptions: KeyboardOptions = KeyboardOptions(
         autoCorrect = false, keyboardType = KeyboardType.Number, imeAction = ImeAction.Done
     ),
@@ -77,9 +83,7 @@ fun CaloryDefaultTextField(
                 },
                 value = value,
                 onValueChange = { onValueChange(it) },
-                textStyle = MaterialTheme.typography.displayLarge.copy(
-                    color = colorPrimary, fontWeight = FontWeight.Bold
-                ),
+                textStyle = valueStyle,
                 keyboardOptions = keyboardOptions,
                 keyboardActions = KeyboardActions(onDone = {
 
@@ -97,7 +101,9 @@ fun CaloryDefaultTextField(
                 }
 
                 ),
-                cursorBrush = SolidColor(MaterialTheme.colorScheme.primary)
+                cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
+                singleLine = true,
+                maxLines = 1
 
 
             )
@@ -106,7 +112,7 @@ fun CaloryDefaultTextField(
             Text(
                 modifier = Modifier.alignByBaseline(),
                 text = unit,
-                style = MaterialTheme.typography.bodySmall,
+                style = unitStyle,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary
             )

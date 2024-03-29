@@ -59,10 +59,6 @@ fun NavGraphBuilder.onboardingNavGraph(navHostController: NavHostController) {
 
             }
 
-            composable(route = NavigationRoute.TrackerOverview.route){
-
-
-            }
         }
     )
 

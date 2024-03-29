@@ -85,6 +85,7 @@ class NutrientViewModel @Inject constructor(
                                 onboardingUseCases.saveCarbsRatio(validateNutrientsResult.carbsRatio)
                                 onboardingUseCases.saveProteinsRatio(validateNutrientsResult.proteinsRatio)
                                 onboardingUseCases.saveFatsRatio(validateNutrientsResult.fatsRatio)
+                                onboardingUseCases.saveShouldShowOnboarding(false)
                                 _uiEvent.send(UiEvent.Navigate(route = NavigationGraphRoute.TrackerGraph.route))
 
                             }

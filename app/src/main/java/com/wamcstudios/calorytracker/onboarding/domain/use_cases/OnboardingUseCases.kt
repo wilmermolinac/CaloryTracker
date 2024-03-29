@@ -11,4 +11,6 @@ data class OnboardingUseCases(
     val saveCarbsRatio: SaveCarbsRatio,
     val saveProteinsRatio: SaveProteinsRatio,
     val saveFatsRatio: SaveFatsRatio,
+    val saveShouldShowOnboarding: SaveShouldShowOnboarding,
+    val loadShouldShowOnboarding: LoadShouldShowOnboarding,
 )

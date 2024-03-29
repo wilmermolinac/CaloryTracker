@@ -62,4 +62,5 @@
     <string name="back">Back</string>
     <string name="error_age_invalid_range">The years provided are outside the valid age range.</string>
     <string name="msg_error_nutrients_total_percent">The total percentage of nutrients must add up to 100 percent</string>
+    <string name="msg_error_query_empty">The query is empty</string>
 </resources>
